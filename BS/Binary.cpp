@@ -31,8 +31,7 @@ std::string add(std::string a, std::string b) {
 std::string operator + (const Binary & left,
         const Binary & right) {
         /* 
-          Overloading + operator.
-          According to Lecture 5: They should be non-member and 
+          Overloading + operator should be non-member and 
           should take two const objects in this case left and right
         */
         return add(left.b_num, right.b_num);
