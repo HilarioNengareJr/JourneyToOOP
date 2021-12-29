@@ -1,0 +1,44 @@
+~Notes~
+
+In C++ an lvalue is something that points to a specific memory location. On the other hand, a rvalue is something that doesn't point anywhere. 
+In general, rvalues are temporary and short lived, while lvalues live a longer life since they exist as variables. 
+It's also fun to think of lvalues as containers and rvalues as things contained in the containers. Without a container, they would expire.
+
+Example:
+
+int x = 1999;
+
+Here 1999 is an rvalue; a number (technically a literal constant) has no specific memory address, except for some temporary register while the program is running.
+That number is assigned to x, which is a variable. 
+A variable has a specific memory location, so its an lvalue. C++ states that an assignment requires an lvalue as its left operand: this is perfectly legal.
+
+With lvalue x you can:
+
+int* y = &x;
+
+You can grab the the memory address of x and put it into y, through the address-of operator &.
+It takes an lvalue argument and produces an rvalue. 
+This is another perfectly legal operation: on the left side of the assignment we have an lvalue (a variable), on the right side an rvalue produced by the address-of operator.
+
+However I CAN NOT assign x to 1999 like
+
+int x;
+1999=x;
+
+The technical reason is that 1999, being a literal constant — so an rvalue,
+doesn't have a specific memory location. I am assigning y to nowhere.
+
+This is what GCC tells me if I run the program above:
+
+error: lvalue required as left operand of assignment
+
+Also I can't
+
+int* y = &1999;
+
+GCC says:
+
+error: lvalue required as unary '&' operand`
+
+The & operator wants an lvalue in input, because only an lvalue has an address that & can process.
+
