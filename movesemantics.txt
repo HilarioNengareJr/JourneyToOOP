@@ -1,0 +1,6 @@
+Move semantics is a new way of moving resources around in an optimal way by avoiding unnecessary copies of temporary objects, based on rvalue references. 
+In my opinion, the best way to understand what move semantics is about is to build a wrapper class around a dynamic resource (i.e. a dynamically allocated pointer) 
+and keep track of it as it moves in and out functions.
+Keep in mind however that move semantics does not apply only to classes!
+
+
