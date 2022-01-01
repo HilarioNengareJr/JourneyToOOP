@@ -1,59 +1,54 @@
 #include <iostream>
 
-class M{
-    
-private:
-	char* item;
+class M {
 
-public:
+        private:
+                char * item;
 
-	// Constructor
-	M(char it)
-	{
-		item = new char;
-		*item = it;
-		// Track constructor calls
-		std::cout << "M Constructor has been invoked : "
-			<< it << std::endl;
-	};
+        public:
 
-	// create a new object from another existing object
-	M(const M& obj )
-		: M{ *obj.item }
-	{
-		std::cout << "Copy Constructor invoked: " << *obj.item << std::endl;
-	}
+                // Constructor
+                M(char it) {
+                        item = new char;
+                        * item = it;
+                        // Track constructor calls
+                        std::cout << "M Constructor has been invoked : " <<
+                                it << std::endl;
+                };
 
-	// Move Constructor
-	M(M&& obj)
-		: item{ obj.item }
-	{
+        // create a new object from another existing object
+        M(const M & obj): M {
+                * obj.item
+        } {
+                std::cout << "Copy Constructor invoked: " << * obj.item << std::endl;
+        }
 
-		std::cout << "Move Constructor invoked: "
-			<< *obj.item << std::endl;
-		obj.item = nullptr;
-	}
+        // Move Constructor
+        M(M && obj): item {
+                        obj.item
+                } {
 
-	// Destructor
-	~M()
-	{
-		if (item != nullptr)
-		{
-			std::cout << "Destructor is invoked: "
-				<< *item << std::endl;
-		    
-		}
-		else
-			std::cout << "Destructor is called for nullptr "
-				<< std::endl;
+                        std::cout << "Move Constructor invoked: " <<
+                                * obj.item << std::endl;
+                        obj.item = nullptr;
+                }
 
-		delete[] item;
-	}
+                // Destructor
+                ~M() {
+                        if (item != nullptr) {
+                                std::cout << "Destructor is invoked: " <<
+                                        * item << std::endl;
+
+                        } else
+                                std::cout << "Destructor is called for nullptr " <<
+                                std::endl;
+
+                        delete[] item;
+                }
 };
 
 // Driver Code
-int main()
-{
-	
-	return 0;
+int main() {
+
+        return 0;
 }
