@@ -1,0 +1,8 @@
+*x -pointed by x
+&x-address of x
+x.y -member y of object x
+x->y -member y of object pointed by x
+(*x).y -member y of object pointed by x (equivalent to the previous one)
+x[0]- first object pointed by x
+x[1] -second object pointed by x
+x[n] -(n+1)th object pointed by x 
