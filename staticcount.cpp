@@ -25,7 +25,8 @@ int main() {
 
         Counter a, b, c; // instantiation
 
-        if (true) {
+        if (true) 
+        {
                 c.Print();
         }
 
